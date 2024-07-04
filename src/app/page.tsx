@@ -15,6 +15,7 @@ import {
 import styles from "./page.module.css";
 
 import { useRouter } from 'next/navigation';
+import AppBarComponent from "./Components/AppBarComponent";
 
 export default function Home() {
   const router = useRouter();
@@ -23,6 +24,7 @@ export default function Home() {
     <div className={styles.page}>
       <header className={styles.header}>
         <h2>KendoReact ❤️ Next.js</h2>
+        <AppBarComponent />
         <div>
           <Button themeColor="primary" fillMode="flat" className="k-mr-1">Home</Button>
           <Button themeColor="primary" fillMode="flat" onClick={() => router.push('/grid')}>Grid</Button>
