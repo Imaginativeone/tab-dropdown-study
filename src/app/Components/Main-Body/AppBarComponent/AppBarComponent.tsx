@@ -3,7 +3,7 @@ import { Badge, BadgeContainer } from "@progress/kendo-react-indicators";
 import { SvgIcon } from "@progress/kendo-react-common";
 import { bellIcon, menuIcon } from "@progress/kendo-svg-icons";
  
-// import "./AppBarComponent.css"
+import "./AppBarComponent.css"
  
 let kendokaAvatar = "https://www.telerik.com/kendo-react-ui-develop/components/images/kendoka-react.png";
  
