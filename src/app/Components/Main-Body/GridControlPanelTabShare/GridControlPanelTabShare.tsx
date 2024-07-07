@@ -2,6 +2,7 @@
  
 import { useState, useEffect } from 'react'
 import TabsGridSelectionComponent from "../TabsGridSelectionComponent/TabsGridSelectionComponent"
+import GridControlPanel from '../GridControlPanel/GridControlPanel'
  
 const GridControlPanelTabShare = (props: any) => { // This component handles the TabsGridSelection to GridControlPanel events
  
@@ -18,6 +19,7 @@ const GridControlPanelTabShare = (props: any) => { // This component handles the
   return (
     <>
       <h1>Shared Parent</h1>
+      <GridControlPanel tabsConfiguration={props} selectedGrid={selectedGrid}/>
       <TabsGridSelectionComponent
         tabsConfiguration={props}
         selectedGrid={selectedGrid}
