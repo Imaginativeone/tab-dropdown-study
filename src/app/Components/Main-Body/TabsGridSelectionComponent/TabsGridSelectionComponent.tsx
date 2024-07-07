@@ -29,6 +29,9 @@ const TabsGridSelectionComponent = (props:any) => {
             <TabStripTab title={grid.settingString} key={index}>
               <div>
                 <p>
+                  Selected Tax Index: { selected }
+                </p>
+                <p>
                   {grid.description}
                 </p>
               </div>
