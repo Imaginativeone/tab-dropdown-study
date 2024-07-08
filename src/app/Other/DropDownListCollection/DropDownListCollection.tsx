@@ -1,4 +1,8 @@
-const DropDownListCollection = () => {
+const DropDownListCollection = (props:any) => {
+
+  const { selectedTab, controls } = props
+
+  console.log('controls', controls)
 
   return (
     <>

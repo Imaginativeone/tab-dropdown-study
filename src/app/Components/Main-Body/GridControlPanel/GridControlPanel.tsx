@@ -28,7 +28,7 @@ const GridControlPanel = (props:any) => {
         <AppBarSection>
           <AppBarSpacer style={{ width: 40 }} />
           Tenant Response Date is Empty
-          <DropDownListCollection />
+          <DropDownListCollection selectedTab={selectedTab} controls={controls} />
         </AppBarSection>
       </AppBar>
     </>
