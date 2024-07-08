@@ -5,7 +5,7 @@ import initialControlsLeasingStat        from "@/app/Other/DropDownListCollectio
 import initialControlsLegal              from "@/app/Other/DropDownListCollection/controls-constants/getLegalDataSet/controls/controls"
 import initialControlsPipelineLeaseStats from "@/app/Other/DropDownListCollection/controls-constants/getPipelineStatDataSet/controls/controls"
 import initialControlsCDA                from "@/app/Other/DropDownListCollection/controls-constants/getCdaDataSet/controls/controls"
-// import initialControlsMaintenance from "@/app/Other/DropDownListCollection/controls-constants/getMaintDataSet/controls/controls"
+import initialControlsOccupancy          from "@/app/Other/DropDownListCollection/controls-constants/getOccupancyDataSet/controls/controls"
 // import initialControlsMaintenance from "@/app/Other/DropDownListCollection/controls-constants/getMaintDataSet/controls/controls"
 // import initialControlsMaintenance from "@/app/Other/DropDownListCollection/controls-constants/getMaintDataSet/controls/controls"
 // import initialControlsMaintenance from "@/app/Other/DropDownListCollection/controls-constants/getMaintDataSet/controls/controls"
@@ -17,5 +17,6 @@ export {
   initialControlsLeasingStat,
   initialControlsLegal,
   initialControlsPipelineLeaseStats,
-  initialControlsCDA
+  initialControlsCDA,
+  initialControlsOccupancy,
 }
