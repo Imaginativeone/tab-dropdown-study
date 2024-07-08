@@ -11,6 +11,7 @@ const importedControlsArray:any = [
   ci.initialControlsPipelineLeaseStats,
   ci.initialControlsCDA,
   ci.initialControlsOccupancy,
+  ci.initialControlsGaapTerm,
 ]
 
 const useFetchControlSet = (selectedTab:any) => {

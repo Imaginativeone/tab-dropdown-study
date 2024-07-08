@@ -2,7 +2,7 @@
 
 import AppBarComponent from './Components/Main-Body/AppBarComponent/AppBarComponent';
 import GridControlPanelTabShare from './Components/Main-Body/GridControlPanelTabShare/GridControlPanelTabShare';
-import { permissionValues } from './constants/permissions';
+import { permissionValues } from '../data/constants/permissions';
  
 import '@progress/kendo-theme-default/dist/all.css';
 // import user from './utilities/user'

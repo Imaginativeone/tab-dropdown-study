@@ -6,7 +6,7 @@ import initialControlsLegal              from "@/app/Other/DropDownListCollectio
 import initialControlsPipelineLeaseStats from "@/app/Other/DropDownListCollection/controls-constants/getPipelineStatDataSet/controls/controls"
 import initialControlsCDA                from "@/app/Other/DropDownListCollection/controls-constants/getCdaDataSet/controls/controls"
 import initialControlsOccupancy          from "@/app/Other/DropDownListCollection/controls-constants/getOccupancyDataSet/controls/controls"
-// import initialControlsMaintenance from "@/app/Other/DropDownListCollection/controls-constants/getMaintDataSet/controls/controls"
+import initialControlsGaapTerm           from "@/app/Other/DropDownListCollection/controls-constants/getGaapTermDataSet/controls/controls"
 // import initialControlsMaintenance from "@/app/Other/DropDownListCollection/controls-constants/getMaintDataSet/controls/controls"
 // import initialControlsMaintenance from "@/app/Other/DropDownListCollection/controls-constants/getMaintDataSet/controls/controls"
 
@@ -19,4 +19,5 @@ export {
   initialControlsPipelineLeaseStats,
   initialControlsCDA,
   initialControlsOccupancy,
+  initialControlsGaapTerm,
 }
