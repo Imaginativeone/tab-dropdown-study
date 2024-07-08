@@ -9,7 +9,7 @@ import '@progress/kendo-theme-default/dist/all.css';
 
 export default function Home() {
 
-  console.log('permissionValues', permissionValues)
+  // console.log('permissionValues', permissionValues)
 
   return (
     <main id="appContainer">

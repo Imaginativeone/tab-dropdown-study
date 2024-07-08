@@ -6,6 +6,7 @@ import GridControlPanel from '../GridControlPanel/GridControlPanel'
  
 const GridControlPanelTabShare = (props: any) => { // This component handles the TabsGridSelection to GridControlPanel events
  
+  const [selectedTab, setSelectedTab] = useState<number>(0);
   const [selectedGrid, setSelectedGrid] = useState<number>(0)                         // These vars are for selecting the
   const [currGrid, setCurrGrid] = useState(props.allGrids[selectedGrid])              // GRID
  
@@ -22,8 +23,8 @@ const GridControlPanelTabShare = (props: any) => { // This component handles the
       <GridControlPanel tabsConfiguration={props} selectedGrid={selectedGrid}/>
       <TabsGridSelectionComponent
         tabsConfiguration={props}
-        selectedGrid={selectedGrid}
-        setSelectedGrid={setSelectedGrid} 
+        selectedTab={selectedTab}
+        setSelectedTab={setSelectedTab}
         currGrid={currGrid} 
         setCurrGrid={setCurrGrid} 
       />
