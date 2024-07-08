@@ -4,7 +4,7 @@ import "./GridControlPanel.css"
 
 const GridControlPanel = (props:any) => {
 
-  const { selectedGrid, dropdownSelection, setDropdownSelection } = props
+  const { selectedTab, dropdownSelection, setDropdownSelection } = props
   const { allGrids } = props.tabsConfiguration
 
   console.log('allGrids', allGrids)
@@ -19,11 +19,10 @@ const GridControlPanel = (props:any) => {
         </AppBarSection>
         <AppBarSpacer style={{ width: 45 }} />
         <AppBarSection>
-          <p>selectedGrid: {selectedGrid}</p>
+          <p>selectedTab: {selectedTab}</p>
         </AppBarSection>
         <AppBarSection>
-          {/* {allGrids[selectedGrid].settingString} | {dropdownSelection.value.text} */}
-          {allGrids[selectedGrid].settingString}
+          {allGrids[selectedTab].settingString}
         </AppBarSection>
         <AppBarSection>
           <AppBarSpacer style={{ width: 40 }} />
