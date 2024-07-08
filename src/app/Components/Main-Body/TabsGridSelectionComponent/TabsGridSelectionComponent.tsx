@@ -10,26 +10,26 @@ import {
 
 const TabsGridSelectionComponent = (props:any) => {
 
-  console.log('TabsGridSelectionComponent props', props);
-  
-  const [selected, setSelected] = useState<number>(0);
+  const { selectedTab, setSelectedTab } = props; // Sent down from parent component
 
+  // console.log('TabsGridSelectionComponent props', props);
+  
   const handleSelect = (e: TabStripSelectEventArguments) => {
-    setSelected(e.selected);
+    setSelectedTab(e.selected);
   };
 
   return (
-    <TabStrip selected={selected} onSelect={handleSelect}>
+    <TabStrip selected={selectedTab} onSelect={handleSelect}>
       {
         props.tabsConfiguration.allGrids.map((grid: any, index: number) => {
 
-          console.log('grid', grid);
+          // console.log('grid', grid);
 
           return (
             <TabStripTab title={grid.settingString} key={index}>
               <div>
                 <p>
-                  Selected Tax Index: { selected }
+                  selectedTab Tax Index: { selectedTab }
                 </p>
                 <p>
                   {grid.description}
