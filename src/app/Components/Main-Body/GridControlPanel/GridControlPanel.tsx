@@ -8,7 +8,7 @@ const GridControlPanel = (props:any) => {
   const { selectedTab, controls } = props
   const { allGrids } = props.tabsConfiguration
 
-  console.log('controls', controls)
+  // console.log('controls', controls)
 
   return (
     <>
