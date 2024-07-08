@@ -1,18 +1,18 @@
 // import { leasing_stat_filter_terms } from "../filters/LEASING_STAT_filterTerms"
 
-const abstractReviewControls = {
-  message: 'AbstractReview Grid Control Panel Controls',
+const leaseTransactionControls = {
+  message: 'LeaseTransaction Grid Control Panel Controls',
   newProp: 'New Property',
   gridControls:
   [
     {
-      apiDropdownName: "AbstractReview - A",
-      apiDropdownDefaultValue: { id: 1, text: 'AbstractReview - Yes', filter: null, defaultValue:true },
+      apiDropdownName: "LeaseTransaction - A",
+      apiDropdownDefaultValue: { id: 1, text: 'LeaseTransaction - Yes', filter: null, defaultValue:true },
       apiDropdownLabel: "Label A",
       apiDropdownControls: [
-        { id: 1, text: 'AbsRvw - Yes',    filter: null, defaultValue:true },
-        { id: 2, text: 'AbsRvw - No',     filter: null},
-        { id: 3, text: 'AbsRvw - Yes/No', filter: null},
+        { id: 1, text: 'LT - Yes',    filter: null, defaultValue:true },
+        { id: 2, text: 'LT - No',     filter: null},
+        { id: 3, text: 'LT - Yes/No', filter: null},
       ]
     },
     // {
@@ -27,4 +27,4 @@ const abstractReviewControls = {
   ]
 }
 
-export default abstractReviewControls
+export default leaseTransactionControls
