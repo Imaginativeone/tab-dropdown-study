@@ -5,8 +5,10 @@ import "./GridControlPanel.css"
 
 const GridControlPanel = (props:any) => {
 
-  const { selectedTab, dropdownSelection, setDropdownSelection } = props
+  const { selectedTab, controls } = props
   const { allGrids } = props.tabsConfiguration
+
+  console.log('controls', controls)
 
   return (
     <>
@@ -26,8 +28,7 @@ const GridControlPanel = (props:any) => {
         <AppBarSection>
           <AppBarSpacer style={{ width: 40 }} />
           Tenant Response Date is Empty
-          <DropDownListCollection
-          />
+          <DropDownListCollection />
         </AppBarSection>
       </AppBar>
     </>

@@ -20,14 +20,13 @@ const GridControlPanelTabShare = (props: any) => { // This component handles the
   // Send generalized dropdown objects from this parent component
   // const [dropdownSelection, setDropdownSelection] = useState({ value: rofoFilterTerms[0] })
  
-  console.log('selectedTab', selectedTab)
   setControls(selectedTab)
-  console.log('controls', controls)
+  // console.log('controls', controls)
 
   return (
     <>
       <h1>Shared Parent</h1>
-      <GridControlPanel tabsConfiguration={props} selectedGrid={selectedGrid} selectedTab={selectedTab} />
+      <GridControlPanel tabsConfiguration={props} selectedGrid={selectedGrid} selectedTab={selectedTab} controls={controls} />
       <TabsGridSelectionComponent
         tabsConfiguration={props}
         selectedTab={selectedTab}
