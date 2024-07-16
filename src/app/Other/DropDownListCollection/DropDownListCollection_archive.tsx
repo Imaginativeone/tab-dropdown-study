@@ -1,74 +1,71 @@
-import { useEffect, useRef, useState } from "react"
-import { DropDownList } from '@progress/kendo-react-dropdowns'
-import controlsObject from "./helperFunctions/controlsObject"
+import { DropDownList } from "@progress/kendo-react-dropdowns";
+import { useEffect, useRef, useState } from "react";
 
-const DropDownListCollection = ({ controls, setControls,ctrlArray, setCtrlArray, ctrlArrayRef, selectedTab, selectedGrid, filters, setFilters, controlInitialSelections }) => {
-
-  useEffect(() => {
-    // console.log('controls', controls)
-    initialFilterSelection(controls)
-    // handleFilterSelection(controls)
-  }, [])
-
-  useEffect(() => {
-    console.log('SET THE CONTROLS');
-    // console.log('controls', controls)
-    handleFilterSelection(controls)
-  }, [selectedGrid])
-
-  const initialFilterSelection = (controls:any) => {
-    const filters = controls.filter
-    console.log('INITIAL FILTER SELECTION', controls)
-  }
-
-  const handleFilterSelection = (event: any) => { // handleOptionSelection?
-    if (!event.value) { // && using the correct controls
-
-      console.log('Initial CONTROL STATE', event, controls) // ******************** Current Development ********************
-
-      // console.log('INITIAL: handleFilterSelection: event', event)
-      // const filters = event.filter
-      // console.log('Local Filters', filters)
-      // setFilters(filters)
-    }
-    else {
-      console.log('If selectedGrid changes, then RESET THE CONTROLS');
-      console.log('SUBSEQUENT: handleFilterSelection: event', event); console.log(event.value)
-      const filters = event.value.filter
-      // console.log('Local Filters', filters)
-      // setFilters(filters)
-    }
-  }
+const DropDownListCollection = (props: any) => { // Controls
+  
+  const { selectedTab, controls, liftableFilter, setLiftableFilter } = props;
 
   return (
     <>
+      {/* <h3>DropdownListCollection</h3> */}
       {
-        controls.gridControls.map((element: any, index: any) => {
-        // ctrlArray.map((element: any, index: any) => {
-        // ctrlArrayRef.current.gridControls.map((element: any, index: any) => {
+        controls.gridControls.map((control: any, index: number) => {
           return (
             <div key={index}>
-              <div>
-                {element.apiDropdownLabel}
-              </div>
-              <DropDownList data={element.apiDropdownControls} textField="text" dataItemKey="id" defaultValue={element.apiDropdownDefaultValue} onChange={handleFilterSelection} />
+              {/* {index} */}
+              <Control control={control} selectedTab={selectedTab} liftableFilter={liftableFilter} setLiftableFilter={setLiftableFilter} />
             </div>
           )
         })
       }
     </>
-  )
-}
+  );
+};
 
-export default DropDownListCollection
+export default DropDownListCollection;
 
-function getControlDefaultValues(ctrlArray: any) {
-  return ctrlArray.map((ctrlSet) => {
-    const defaultSelection = ctrlSet.apiDropdownControls.filter((potentialDefault: any) => {
-      if (potentialDefault.defaultValue) {
-        return potentialDefault
-      }
-    })
-    return { ...ctrlSet, apiDropdownDefaultValue: defaultSelection[0] }
-  })
+function Control({ control, selectedTab, liftableFilter, setLiftableFilter }) {
+
+  useEffect(() => { // Defined in and lifted to GridControlPanelTabShare
+    console.log('liftedFilter', liftableFilter)
+  }, [liftableFilter])
+
+  const [selectedControl, setSelectedControl] = useState(control.apiDropdownDefaultValue)
+  const filter = useRef()
+
+  useEffect(() => {
+    filter.current = control.apiDropdownDefaultValue.filter
+    // console.log('filter', filter)
+    // setLiftableFilter('B')
+    setLiftableFilter(filter.current)
+    // console.log('liftableFilter', liftableFilter)
+  }, [])
+
+  useEffect(() => { 
+    setSelectedControl(control.apiDropdownDefaultValue)
+    filter.current = control.apiDropdownDefaultValue.filter
+    setLiftableFilter(filter.current)
+    // console.log('filter', filter)
+    // console.log('liftableFilter', liftableFilter)
+  }, [selectedTab])
+
+  const handleDropdownSelection = (event:any) => { 
+    setSelectedControl(event.value)
+    filter.current = event.value.filter
+
+    console.log('filter.current', filter.current)
+    console.log('event.value', event.value)
+  }
+
+  return (
+    <>
+      {/* <h3>Control (Component)</h3> */}
+      <DropDownList 
+        data={control.apiDropdownControls}
+        textField="text"
+        value={selectedControl}
+        onChange={handleDropdownSelection}
+      />
+    </>
+  );
 }
