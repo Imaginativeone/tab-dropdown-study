@@ -1,56 +1,63 @@
 import { DropDownList } from "@progress/kendo-react-dropdowns";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const DropDownListCollection = (props: any) => {
+const DropDownListCollection = (props: any) => { // Controls
   const { selectedTab, controls } = props;
-
-  // console.log('controls', controls)
 
   return (
     <>
       {/* <h3>DropdownListCollection</h3> */}
-      <Controls controls={controls} selectedTab={selectedTab} />
+      {
+        controls.gridControls.map((control: any, index: number) => {
+          return (
+            <div key={index}>
+              {/* {index} */}
+              <Control control={control} selectedTab={selectedTab} />
+            </div>
+          )
+        })
+      }
     </>
   );
 };
 
 export default DropDownListCollection;
 
-function Controls({ controls, selectedTab }) {
-  const isControl = Array.isArray(controls.gridControls); // console.log('isControl', isControl)
+function Control({ control, selectedTab }) {
+
+  const [selectedControl, setSelectedControl] = useState(control.apiDropdownDefaultValue)
+  const [filter, setFilter] = useState(control.apiDropdownDefaultValue.filter)
+  const dropdownRef = useRef()
+
+  useEffect(() => {
+    setFilter(control.apiDropdownDefaultValue.filter)
+    // console.log('filter', filter)
+    dropdownRef.current = control.apiDropdownDefaultValue
+  }, [])
+
+  useEffect(() => { 
+    setSelectedControl(control.apiDropdownDefaultValue)
+    dropdownRef.current = control.apiDropdownDefaultValue
+    console.log('dropdownRef', dropdownRef)
+  }, [selectedTab])
+
+  const handleDropdownSelection = (event:any) => { 
+    setSelectedControl(event.value)
+    console.log('handleDropdownSelection | event.value', event.value)
+    dropdownRef.current = event.value
+    console.log('dropdownRef', dropdownRef)
+  }
 
   return (
     <>
-      {/* <h3>Controls (Component)</h3> */}
-      {controls.gridControls.map((controlElement: any, index: number) => {
-        // console.log('controlElement', controlElement)
-
-        const [value, setValue] = useState(null); //created state for value and send to kendo-dropdownlist
-
-        const handleDropdownSelection = (event: any) => {
-          console.log("event", event.value);
-          console.log("controls", controls);
-          setValue(event.value); //update value on change event
-        };
-
-        useEffect(() => {
-          setValue(controlElement.apiDropdownDefaultValue);
-        }, [selectedTab]); //anytime the state for selectedTab changes we want to reset the value to match the controlset's default
-
-        return (
-          <div key={index}>
-            {index}
-            <DropDownList
-              data={controlElement.apiDropdownControls}
-              value={value}
-              textField="text"
-              dataItemKey="id"
-              defaultValue={controlElement.apiDropdownDefaultValue}
-              onChange={handleDropdownSelection}
-            />
-          </div>
-        );
-      })}
+      {/* <h3>Control (Component)</h3> */}
+      <DropDownList 
+        data={control.apiDropdownControls}
+        textField="text"
+        value={selectedControl}
+        onChange={handleDropdownSelection}
+        ref={dropdownRef}
+      />
     </>
   );
 }

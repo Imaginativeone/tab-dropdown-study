@@ -9,17 +9,9 @@ const GridControlPanelTabShare = (props: any) => {
   // This component handles the TabsGridSelection to GridControlPanel events
 
   const [selectedTab, setSelectedTab] = useState<number>(0);
-  const [selectedGrid, setSelectedGrid] = useState<number>(0); // These vars are for selecting the
+  const [selectedGrid, setSelectedGrid] = useState<number>(0);
   const [currGrid, setCurrGrid] = useState(props.allGrids[selectedGrid]); // GRID
-
   const { controls, setControls } = useFetchControlSet(selectedTab);
-
-  // Set the data for the first time, and that's it. Filter the data separately (without refetching it).
-  // const dataSet = dataSetMap[selectedGrid].apiDataSet
-  // const dataSetGrid = dataSetMap[selectedGrid].grid
-
-  // Send generalized dropdown objects from this parent component
-  // const [dropdownSelection, setDropdownSelection] = useState({ value: rofoFilterTerms[0] })
 
   useEffect(() => {
     setControls(selectedTab);
