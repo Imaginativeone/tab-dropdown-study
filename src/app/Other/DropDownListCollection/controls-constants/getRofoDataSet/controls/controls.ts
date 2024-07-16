@@ -17,12 +17,12 @@ const rofoControls = {
     },
     {
       apiDropdownName: "rofo - B",
-      apiDropdownDefaultValue: { id: 2, text: 'B', filter: null, defaultValue: true },
+      apiDropdownDefaultValue: { id: 2, text: 'B', filter: 'rofo-B-filter', defaultValue: true },
       apiDropdownLabel: "Label B",
       apiDropdownControls: [
-        { id: 1, text: 'A', filter: null },
-        { id: 2, text: 'B', filter: null, defaultValue: true },
-        { id: 3, text: 'C', filter: null },
+        { id: 1, text: 'A', filter: 'rofo-A-filter' },
+        { id: 2, text: 'B', filter: 'rofo-B-filter', defaultValue: true },
+        { id: 3, text: 'C', filter: 'rofo-C-filter' },
       ]
     },
   ]
