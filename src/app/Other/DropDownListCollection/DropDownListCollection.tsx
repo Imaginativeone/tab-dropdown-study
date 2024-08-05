@@ -21,7 +21,7 @@ const DropDownListCollection = (props: any) => { // Controls
   );
 };
 
-export default DropDownListCollection;
+export default DropDownListCollection
 
 function Control({ control, selectedTab }) {
 
@@ -31,7 +31,6 @@ function Control({ control, selectedTab }) {
 
   useEffect(() => {
     setFilter(control.apiDropdownDefaultValue.filter)
-    // console.log('filter', filter)
     dropdownRef.current = control.apiDropdownDefaultValue
   }, [])
 
