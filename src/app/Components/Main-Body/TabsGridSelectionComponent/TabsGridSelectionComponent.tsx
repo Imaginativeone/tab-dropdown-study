@@ -1,12 +1,8 @@
 'use client'
 
 import { useState } from "react";
-
-import {
-  TabStrip,
-  TabStripSelectEventArguments,
-  TabStripTab,
-} from "@progress/kendo-react-layout";
+import { TabStrip, TabStripSelectEventArguments, TabStripTab } from "@progress/kendo-react-layout";
+import CDPGrid from "../CDPGrid/CDPGrid";
 
 const TabsGridSelectionComponent = (props:any) => {
 
@@ -35,6 +31,7 @@ const TabsGridSelectionComponent = (props:any) => {
                   {grid.description}
                 </p>
               </div>
+              <CDPGrid />
             </TabStripTab>
           )
         })

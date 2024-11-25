@@ -1,4 +1,4 @@
-[
+const rofoData = [
   {
       "columnpk": 3,
       "GridName": "ROFO/ROFR",
@@ -310,3 +310,5 @@
       "colOrderedIndex": 2
   }
 ] 
+
+export default rofoData

@@ -28,7 +28,7 @@ const GridControlPanelTabShare = (props: any) => {
 
   return (
     <>
-      <h1>Shared Parent</h1>
+      {/* <h1>Shared Parent</h1> */}
       <GridControlPanel
         tabsConfiguration={props}
         selectedGrid={selectedGrid}
