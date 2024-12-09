@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model ROFOData {
+  Id        Int      @id @default(autoincrement())
+  AmendmentID        String
+  PropID  String
+  PropertyCode  String 
+  PropertyAddress String
+  TenantCode  String
+  Version Int
+  LegalEntity String
+  DealStatus  String
+  Units String
+  ExistingLease String
+  ROFOROFRType  String
+  ROFOROFRPremisesSuites  String?
+  NotificationDateSent String?
+  DaysToRespond Int?
+  DaysType String
+  NotificationDelivered String?
+  NotificationResponseDeadline String?
+  TenantResponse  String
+  TenantResponseDate String?
+  ROFOROFONotes String?
+  hmyperson String?
+  sstatus String
+  Activity Int
+  A17HMY  String
+}
+
+model ROFOConfig {
+  columnpk        Int      @id @default(autoincrement())
+  GridName String
+  DBName String
+  FriendlyName  String
+  Width Int
+  IsEditable Int @default(0)
+  IsHidden Int @default(0)
+  DropDownProc String?
+  DataType String?
+  FormatString String?
+  colOrderedIndex Int
+}
+
+
